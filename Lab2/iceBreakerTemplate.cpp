@@ -25,7 +25,7 @@ using namespace std;
 //------------------------PROTOTYPE-------------------------------------------
 void promptFile(vector<string> &); 
 void printVec(vector<string>);
-void readFile(string filename, vector<string> & vec);
+bool readFile(string filename, vector<string> & vec);
 void writeFile(string filename, vector<string> v0, vector<string> v1);
 void promptFile(vector<string> & v);
 void printVec(vector<string> v);
@@ -62,14 +62,14 @@ int ranGen(int size)
  * ​​​Return a bool instead in order to indicate whether the operation
  * succeeded or not
  */
-void readFile(string filename, vector<string> & vec) {
+bool readFile(string filename, vector<string> & vec) {
 
    ifstream inputFile(filename);
 
     //error handling
     if (!inputFile.is_open()) {
         cerr << "Error: Could not open file\n";
-        return;
+        return false;
     }
 
     string line;
@@ -79,7 +79,7 @@ void readFile(string filename, vector<string> & vec) {
     }
 
     inputFile.close();
-    return;
+    return true; 
 }
 /**
  * @brief writes to filename with the first column from v0, second column from v1
