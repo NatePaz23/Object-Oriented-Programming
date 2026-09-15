@@ -26,7 +26,7 @@ using namespace std;
 void promptFile(vector<string> &); 
 void printVec(vector<string>);
 bool readFile(string filename, vector<string> & vec);
-void writeFile(string filename, vector<string> v0, vector<string> v1);
+bool writeFile(string filename, const vector<string> & v0, const vector<string> & v1);
 void promptFile(vector<string> & v);
 void printVec(vector<string> v);
 int ranGen(int);
@@ -101,11 +101,12 @@ bool readFile(string filename, vector<string> & vec) {
  * -  pass by value (e.g. vector<string> v0),
  * -  pass by const reference (e.g. const vector<string> & v0),
  */
-void writeFile(string filename, vector<string> v0, vector<string> v1){
+bool writeFile(string filename, const vector<string> & v0, const vector<string> & v1){
 
     ofstream outputFile(filename);
      if (!outputFile) {
         cout << "Error: Could not create data.csv" << endl;
+        return false;
     }
 
     // write under the structure:
@@ -114,6 +115,7 @@ void writeFile(string filename, vector<string> v0, vector<string> v1){
         outputFile << v0[i] << "," << v1[ranGen(v1.size())] << endl;
     }
     outputFile.close();
+    return true;
 
 }
 
