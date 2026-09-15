@@ -4,6 +4,7 @@
 #include<vector>
 #include<cstdlib>
 #include<ctime>
+#include<random>
 /**
  * TO DO: 
  * Add <vector>, <cstdlib>, and <ctime>​
@@ -28,7 +29,7 @@ void readFile(string filename, vector<string> & vec);
 void writeFile(string filename, vector<string> v0, vector<string> v1);
 void promptFile(vector<string> & v);
 void printVec(vector<string> v);
-int ranGen();
+int ranGen(int);
 /**
  * @brief randomly returns a number from 0 to 5.
  * - It is hardcoded to be from 0 to 5.
@@ -44,8 +45,11 @@ int ranGen();
  */
 int ranGen(int size)
 {
-    int randomNumber = rand() % size;  // 0 through qBank.size() - 1
-    return randomNumber;
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> distribution(0, size - 1);
+
+    return distribution(gen);
 }
 
 /**
@@ -107,7 +111,7 @@ void writeFile(string filename, vector<string> v0, vector<string> v1){
     // write under the structure:
     // Student_Name, Question_#
     for(int i = 0; i < v0.size(); i++){
-        outputFile << v0[i] << "," << v1[ranGen()] << endl;
+        outputFile << v0[i] << "," << v1[ranGen(v1.size())] << endl;
     }
     outputFile.close();
 
@@ -116,7 +120,7 @@ void writeFile(string filename, vector<string> v0, vector<string> v1){
 
 int main()
 {
-    srand(time(nullptr));
+    
     vector<string> roster;
     vector<string> qBank;
     readFile("2310_F26_Rosters.csv", roster);
