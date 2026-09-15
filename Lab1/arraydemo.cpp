@@ -22,6 +22,17 @@ int main(){
     int arr[SIZE];
     for (int i=0; i<SIZE; i++){
         arr[i]=100+i;
-        
+
     }
+
+    printf("Before-------\n");
+    printMemArr(arr, SIZE);
+
+    //change the Values 
+    incArrBy10(arr, SIZE);
+    printf("After-------\n");
+    printMemArr(arr, SIZE);
+
+    return 0;
+    
 }
