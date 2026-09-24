@@ -51,3 +51,11 @@ string Person::getOccupation() const{
 bool Person::getLivesInIE() const{
  return lives_in_IE;
 }
+
+bool Person:: isOlderThan ( Person b ) const{
+if (age > b.age) {
+    return true;
+} else {
+    return false;
+}
+}
