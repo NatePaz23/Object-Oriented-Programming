@@ -35,3 +35,19 @@ void Person::updateOccupation(string new_occupation){
 void Person::movedLocation(){
     lives_in_IE = !lives_in_IE;
 }
+
+string Person::getName() const{
+    return name;
+}
+
+int Person::getAge() const{
+    return age;
+}
+
+string Person::getOccupation() const{
+    return occupation;
+}
+
+bool Person::getLivesInIE() const{
+ return lives_in_IE;
+}
