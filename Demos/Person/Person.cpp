@@ -25,3 +25,13 @@ void Person::updateName(string new_name){
 void Person::updateAge(int new_age){
     age = new_age;
 }
+
+// updates occupation to new_occupation 
+void Person::updateOccupation(string new_occupation){
+    occupation = new_occupation;
+}
+
+// updates lives_in_IE to true (moved location)
+void Person::movedLocation(){
+    lives_in_IE = !lives_in_IE;
+}
