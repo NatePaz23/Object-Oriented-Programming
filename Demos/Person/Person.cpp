@@ -8,7 +8,7 @@ Person::Person(){
     lives_in_IE = false;
 }
 
-Person::Person::Person(string name, int age, string occupation, bool lives_in_IE){
+Person::Person(string name, int age, string occupation, bool lives_in_IE){
 
   this->name = name;
   this->age = age;
