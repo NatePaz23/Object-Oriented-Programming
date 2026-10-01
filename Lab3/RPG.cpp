@@ -35,3 +35,12 @@ int RPG::getlevel() const{
     return level;
 }
 
+//mutator 
+void RPG::setHitsTaken(int new_hits){
+    hits_taken = new_hits;
+}
+
+bool RPG::isAlive() const 
+{
+    return hits_taken < MAX_HITS_TAKEN;
+}
