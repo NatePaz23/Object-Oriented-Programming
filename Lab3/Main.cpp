@@ -21,7 +21,9 @@ cout<<"\nP2 hits taken: "<<p2.getHitsTaken() << endl;
 
 
 
-//cout << "0 is dead, 1 is alive\n";
+cout << "0 is dead, 1 is alive\n";
+cout << "P1 " << p1.isAlive() << endl;
+cout << "P2 " << p2.isAlive() << endl;
 // call isAlive on both P1 and p2 
 
 return 0;
