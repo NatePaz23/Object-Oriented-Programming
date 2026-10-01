@@ -15,14 +15,15 @@ printf("Hits Taken: %i\t Luck: %f\t EXP: %f\t Level: %i\n", p1.getHitsTaken(), p
 printf("%s Current Stats\n", p2.getName().c_str());
 printf("Hits Taken: %i\t Luck: %f\t EXP: %f\t Level: %i\n", p2.getHitsTaken(), p2.getluck(),p2.getexp(), p2.getlevel());
 //Call setHitsTaken on  p2 
-
-/** 
-cout<<"\nP2 hits taken ";
+p2.setHitsTaken(3);
 // Print out the hits_taken
+cout<<"\nP2 hits taken: "<<p2.getHitsTaken() << endl; 
 
-cout << "0 is dead, 1 is alive\n";
+
+
+//cout << "0 is dead, 1 is alive\n";
 // call isAlive on both P1 and p2 
-*/
+
 return 0;
 
 }
