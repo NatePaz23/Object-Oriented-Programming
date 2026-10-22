@@ -15,7 +15,9 @@ class RPG {
     //mutators 
     bool isAlive() const;
     void setHitsTaken(int new_hits);
-    
+    void RPG::setName(string name){
+        this->name = name;
+    }
    
     //accessors
     string getName() const;
