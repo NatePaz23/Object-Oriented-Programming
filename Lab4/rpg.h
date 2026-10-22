@@ -30,6 +30,17 @@ class RPG {
         }
     }
    
+    void RPG::attack(RPG * opponent){
+        random_device rd; 
+        mt19937 gen(rd());
+        uniform_real_distribution<double> dis(0.0, 1.0);
+
+        float randum_num = dis(gen);
+
+    }
+
+
+
     //accessors
     string getName() const;
     int getHitsTaken() const;
