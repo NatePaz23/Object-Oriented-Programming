@@ -68,7 +68,10 @@ class RPG {
     float getluck() const;
     float getexp() const;
     int getlevel() const;
+    
+RPG::~RPG() {
 
+}
     private:
     string name;
     int hits_taken;
