@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <random>
 #include <iterator>
-
+#include <iostream>
 using namespace std;
 
 Game::Game() {
@@ -40,3 +40,15 @@ int Game::selectPlayer()
 
     return selectedIndex;
 }
+void Game::endRound(RPG *winner, RPG *loser, int loserIndex)
+{
+
+winner-> setHitsTaken(0);
+live_players.erase(loserIndex);
+winner->updateExpLevel();
+
+cout<< winner->getName()<< " won against "<< loser->getName()<<endl;
+
+}
+
+
