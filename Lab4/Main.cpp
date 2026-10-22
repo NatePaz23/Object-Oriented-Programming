@@ -1,32 +1,26 @@
-//main.cpp
+
 #include <iostream>
 #include "rpg.h"
+#include "Game.h"
 
 using namespace std;
 
-int main() {
-RPG p1 = RPG("Wiz",0,0.2,60,1);
-RPG p2 = RPG();
+int main()
+{
+    // Create a Game object
+    Game game;
 
-printf("%s Current Stats\n", p1.getName().c_str()); 
-printf("Hits Taken: %i\t Luck: %f\t EXP: %f\t Level: %i\n", p1.getHitsTaken(), p1.getluck(),p1.getexp(), p1.getlevel());
+    // Create num_players and set it to 10
+    int num_players = 10;
 
-// Print P2
-printf("%s Current Stats\n", p2.getName().c_str());
-printf("Hits Taken: %i\t Luck: %f\t EXP: %f\t Level: %i\n", p2.getHitsTaken(), p2.getluck(),p2.getexp(), p2.getlevel());
-//Call setHitsTaken on  p2 
-p2.setHitsTaken(3);
-// Print out the hits_taken
-cout<<"\nP2 hits taken: "<<p2.getHitsTaken() << endl; 
+    // Generate the players
+    game.generatePlayers(num_players);
 
+    // Start the battle royale
+    game.gameLoop();
 
+    // Print the final results
+    game.printFinalResults();
 
-cout << "0 is dead, 1 is alive\n";
-cout << "P1 " << p1.isAlive() << endl;
-cout << "P2 " << p2.isAlive() << endl;
-// call isAlive on both P1 and p2 
-
-return 0;
-
+    return 0;
 }
-
