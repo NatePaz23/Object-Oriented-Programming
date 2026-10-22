@@ -7,28 +7,25 @@ const float HIT_FACTOR = 0.05;
 const int MAX_HITS_TAKEN = 3;
 
 class RPG {
-    public:
-    // constructor
-    RPG(); 
-    RPG(string name, int hits_taken, float luck, float exp, int level);
+public:
+// constructor
+RPG(); 
+RPG(string name, int hits_taken, float luck, float exp, int level);
 
-    //mutators 
-    bool isAlive() const;
-    void setHitsTaken(int new_hits);
-    void RPG::setName(string name){
-        this-> name =name;
-    }
-    
+//mutators 
+bool isAlive() const;
+void setHitsTaken(int new_hits);
 
-    //accessors
-    string getName() const;
+//accessors
+string getName() const;
+
     int getHitsTaken() const;
     float getluck() const;
     float getexp() const;
     int getlevel() const;
 
-    private:
-    string name;
+private:
+string name;
     int hits_taken;
     float luck;
     float exp;
