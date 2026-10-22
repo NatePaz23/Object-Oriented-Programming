@@ -1,5 +1,5 @@
 #include "rpg.h"
-
+#include <random>
 RPG::RPG() {
     name = "NPC";
     hits_taken = 0;

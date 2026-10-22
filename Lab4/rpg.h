@@ -35,8 +35,16 @@ class RPG {
         mt19937 gen(rd());
         uniform_real_distribution<double> dis(0.0, 1.0);
 
-        float randum_num = dis(gen);
+        float rand_num = dis(gen);
 
+        bool hit = false;
+        if (rand_num > HIT_FACTOR * opponent->getluck()){
+            hit=true;
+        }
+        if(hit){
+            (*opponent).setHitsTaken((*opponent).getHitsTaken()+1);
+
+        }
     }
 
 
