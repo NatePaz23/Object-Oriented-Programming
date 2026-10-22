@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #ifndef RPG_H
 #define RPG_H
 using namespace std;
@@ -47,6 +48,18 @@ class RPG {
         }
     }
 
+    void RPG::printStats()
+    {
+        cout<<"Name: "<<name<< "Hits Taken: "<<hits_taken<<"   Luck: "<<luck<<"   Exp: "<<exp<<"   Level: "<<level;
+
+        if (isAlive()){
+            cout<<"   Status: Alive";
+        }
+        else{
+            cout<<"   Status: Dead";
+        }
+        cout<<endl;
+    }
 
 
     //accessors
