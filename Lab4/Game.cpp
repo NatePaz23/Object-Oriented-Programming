@@ -93,4 +93,14 @@ void Game::gameLoop()
     }   
 }
 
+void Game::printFinalResults()
+{
+    for(int i = 0; i< players.size(); i++)
+    {
+        players[i]->printStats();
+    }
+}
 
+Game::~Game()
+{ 
+}
