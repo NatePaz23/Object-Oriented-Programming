@@ -1,82 +1,47 @@
-#include <string>
-#include <iostream>
+
 #ifndef RPG_H
 #define RPG_H
+
+#include <string>
 using namespace std;
+
 const int INVENTORY_SIZE = 10;
 const float HIT_FACTOR = 0.05;
 const int MAX_HITS_TAKEN = 3;
 
 class RPG {
-    public:
-    // constructor
-    RPG(); 
-    RPG(string name, int hits_taken, float luck, float exp, int level);
+public:
+    // Constructors
+    RPG();
+    RPG(string name, int hits_taken, float luck,
+        float exp, int level);
 
-    //mutators 
+    // Mutators
     bool isAlive() const;
     void setHitsTaken(int new_hits);
 
-    //new
-    void RPG::setName(string name){
-        this->name = name;
-    }
+    // New functions
+    void setName(string name);
+    void updateExpLevel();
+    void attack(RPG* opponent);
+    void printStats();
 
-    void RPG::updateExpLevel(){
-        exp+=50;
-        if(exp>=100){
-            level=level+1;
-            exp=0;
-            luck+=0.1;
-        }
-    }
-   
-    void RPG::attack(RPG * opponent){
-        random_device rd; 
-        mt19937 gen(rd());
-        uniform_real_distribution<double> dis(0.0, 1.0);
-
-        float rand_num = dis(gen);
-
-        bool hit = false;
-        if (rand_num > HIT_FACTOR * opponent->getluck()){
-            hit=true;
-        }
-        if(hit){
-            (*opponent).setHitsTaken((*opponent).getHitsTaken()+1);
-
-        }
-    }
-
-    void RPG::printStats()
-    {
-        cout<<"Name: "<<name<< "Hits Taken: "<<hits_taken<<"   Luck: "<<luck<<"   Exp: "<<exp<<"   Level: "<<level;
-
-        if (isAlive()){
-            cout<<"   Status: Alive";
-        }
-        else{
-            cout<<"   Status: Dead";
-        }
-        cout<<endl;
-    }
-
-
-    //accessors
+    // Accessors
     string getName() const;
     int getHitsTaken() const;
     float getluck() const;
     float getexp() const;
     int getlevel() const;
-    
-RPG::~RPG() {
 
-}
-    private:
+    // Destructor
+    ~RPG();
+
+private:
     string name;
     int hits_taken;
     float luck;
     float exp;
     int level;
 };
-#endif 
+
+#endif
