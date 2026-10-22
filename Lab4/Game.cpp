@@ -19,3 +19,24 @@ void Game:: generatePlayers(int n)
      
     }
 }
+
+int Game::selectPlayer()
+{
+    random_device rd;
+    mt19937 gen(rd());
+
+    uniform_int_distribution<int> dist(
+        0, live_players.size() - 1
+    );
+
+    // Pick random index
+    int randomIndex = dist(gen);
+
+    // Advance iterator to that index
+    set<int>::iterator it = live_players.begin();
+    advance(it, randomIndex);
+
+    int selectedIndex = *it;
+
+    return selectedIndex;
+}
