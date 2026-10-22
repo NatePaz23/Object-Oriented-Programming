@@ -51,4 +51,36 @@ cout<< winner->getName()<< " won against "<< loser->getName()<<endl;
 
 }
 
+void Game::battleRound()
+{
+    int playerind1 =  selectPlayer();
+    int playerind2 =  selectPlayer();
 
+    if(playerind1 == playerind2){
+        battleRound();
+        return;
+    }
+
+RPG* player1 = players[playerind1];
+RPG* player2 = players[playerind2];
+
+while (player1->isAlive() && player2->isAlive())
+{
+    player1->attack(player2);
+
+    if (player2->isAlive())
+    {
+        player2->attack(player1);
+    }
+}
+
+if (player1->isAlive())
+{
+endRound(player1, player2, playerind2);
+}
+else
+{
+    endRound(player2, player1, playerind1);
+
+}
+}
